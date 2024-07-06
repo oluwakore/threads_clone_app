@@ -1,14 +1,22 @@
+import * as React from 'react'
 import { StyleSheet } from 'react-native';
-
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
+import Lottie from 'lottie-react-native'
 
 export default function TabTwoScreen() {
+  const animationRef = React.useRef<Lottie>(null)
+  
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
+      <Text style={styles.title}>Searching For Stuff</Text>
+      <Lottie
+        ref={animationRef} 
+        source={require("../../animations/search_animation.json")}
+        autoPlay
+        loop={true}
+        style={{width: 100, height: 100, alignSelf: "center"}}
+        />
     </View>
   );
 }
